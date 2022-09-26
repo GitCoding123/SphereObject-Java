@@ -1,0 +1,71 @@
+Brian Gerkens
+n00888198
+
+In order to implement a sphere object, I created a class called 'Sphere'.
+Within the class, I created a default constructor with radius set to 0,
+and another constructor with a specified radius (5). I ran into a few issues
+implementing the 'setRadius()' method; First I was trying to call the method
+on the sphere object directly from main{} while also calling the constructor
+with a radius of 5.
+
+main {
+	Sphere mySphereA = new Sphere();
+	mySphereA.setRadius();
+
+	Sphere mySphereB = new Sphere(5);
+	mySphereB.setRadius();
+}
+
+Then I tried plugging an additional value into 'mySphereB.setRadius(10)' like so:
+
+main {
+	Sphere mySphereA = new Sphere();
+	mySphereA.setRadius();
+
+	Sphere mySphereB = new Sphere(5);
+	mySphereB.setRadius(10);
+}
+
+This ended up overriding the parameter in 'Sphere mySphereB = new Sphere(5)', making 
+this parameter useless no matter what it was set to. After doing further research on
+setters/getters and looking at the Final Square.java file, I realized that the 
+'setRadius()' method must be called INSIDE of the second constructor as 
+'this.setRadius(newRadius)'. This change enabled my code to properly perform every
+method and print the correct output with the specified radius. 
+
+I also had a bit of trouble with the compareTo() function, specifically which spheres 
+to compare. I ended up comparing Sphere A and Sphere B with eachother. For everything
+else, I was able to follow along in the recorded lectures and implement some of the concepts
+to help build this project.
+ 
+
+
+All methods(setRadius(), getRadius(), getVolume(), getSurfaceArea(), toString(),
+compareTo()) were independently tested. I tried running for-loops for each method to set a range
+of specified radius values within the bounds of -100,000 to 100,000. I can see that all methods pass
+except for the toString() and compareTo() methods, which I will get to. Another method I used was to just
+select a random positive and negative double integer value just to make sure that it would properly pass through
+the parameter.
+
+I ran into some issues testing the 'toString()' method. I performed the 
+same task as above, using for-loops passing through values between 0 and 100,000, and then -100,000 to 0. I set
+the radius using 'testSphere.setRadius(i)' and then I set a String variable equal to
+whatever the toString() method was supposed to print. I was unable to figure out why exactly I
+kept recieveing 'FAILED toString()'
+
+Also I ran into issues testing the compareTo() method. As stated above, I was unsure exactly
+which spheres to compare, so I went with Sphere A and Sphere B. As for the testing, I tried
+my best for this method. 
+****UPDATE**** 
+I think I just figured out the testing for the compareTo() method. 
+
+*If I did encounter a method failure for the methods above, at first my failure
+statement would  print through each iteration of the loop, printing 100,000 times!
+In order to avoid this, I used the break; statement so it would only print once,
+then break from the loop*
+ 
+   
+
+
+
+
